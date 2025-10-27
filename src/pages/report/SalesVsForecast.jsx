@@ -69,13 +69,26 @@ export default function SalesVsForecast() {
   ];
 
   const layout = {
-    yaxis: { title: "Value (in Units)", tickformat: ",.0f" },
-    xaxis: { title: "Year" },
-    legend: { orientation: "h", x: 0, y: 1.12 },
-    margin: { l: 60, r: 30, t: 20, b: 50 },
+    yaxis: {
+      title: "Value (in Units)",
+      tickformat: ",.0f",
+      automargin: true,
+    },
+    xaxis: {
+      title: "Year",
+      automargin: true,
+    },
+    legend: {
+      orientation: "h",
+      y: -0.2,
+      x: 0.5,
+      xanchor: "center",
+    },
+    margin: { l: 80, r: 40, t: 20, b: 100 },
     hovermode: "x unified",
     paper_bgcolor: "rgba(0,0,0,0)",
     plot_bgcolor: "rgba(0,0,0,0)",
+    autosize: true,
   };
 
   return (
@@ -90,7 +103,6 @@ export default function SalesVsForecast() {
             This chart shows how actual sales (in Units) compare to snapshot
             LTDF forecasts.
           </p>
-
           <div className="flex gap-4 mb-6">
             <Select defaultValue="Benlysta IV" style={{ width: 220 }}>
               <Option>Benlysta IV</Option>
@@ -107,11 +119,33 @@ export default function SalesVsForecast() {
               <Option>Monthly</Option>
             </Select>
           </div>
-
-          <div className="card-shadow rounded-2xl p-4" style={{ height: 440 }}>
-            <PlotlyChart data={data} layout={layout} />
-          </div>
-
+          <div className="card-shadow rounded-2xl p-6">
+            <div style={{ height: 480, position: "relative" }}>
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                }}
+              >
+                <PlotlyChart
+                  data={data}
+                  layout={{
+                    ...layout,
+                    width: undefined,
+                    height: undefined,
+                  }}
+                  config={{
+                    responsive: true,
+                    displayModeBar: false,
+                  }}
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </div>
+            </div>
+          </div>{" "}
           {/* Insights card */}
           <div className="mt-6 bg-white card-shadow rounded-2xl p-6">
             <div className="inline-flex gap-2 mb-3">

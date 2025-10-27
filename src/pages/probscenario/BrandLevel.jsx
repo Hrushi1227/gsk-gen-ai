@@ -153,8 +153,32 @@ export default function BrandLevel() {
 
         {/* Charts grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <div className="card-shadow rounded-2xl p-4">
-            <PlotlyChart data={varianceChart} layout={varianceLayout} />
+          <div className="card-shadow rounded-2xl p-6">
+            <div style={{ height: 480, position: "relative" }}>
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                }}
+              >
+                <PlotlyChart
+                  data={varianceChart}
+                  layout={{
+                    ...varianceLayout,
+                    width: undefined,
+                    height: undefined,
+                  }}
+                  config={{
+                    responsive: true,
+                    displayModeBar: false,
+                  }}
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </div>
+            </div>
             <div className="mt-4">
               <h3 className="font-semibold text-gray-800 mb-2">
                 Variance (%) Distribution
@@ -169,8 +193,32 @@ export default function BrandLevel() {
             </div>
           </div>
 
-          <div className="card-shadow rounded-2xl p-4">
-            <PlotlyChart data={simulatedChart} layout={simulatedLayout} />
+          <div className="card-shadow rounded-2xl p-6">
+            <div style={{ height: 480, position: "relative" }}>
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                }}
+              >
+                <PlotlyChart
+                  data={simulatedChart}
+                  layout={{
+                    ...simulatedLayout,
+                    width: undefined,
+                    height: undefined,
+                  }}
+                  config={{
+                    responsive: true,
+                    displayModeBar: false,
+                  }}
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </div>
+            </div>
             <div className="mt-4">
               <h3 className="font-semibold text-gray-800 mb-2">
                 Simulated Base LTDF Distribution

@@ -127,8 +127,30 @@ export default function PortfolioLevel() {
 
         {/* Chart card */}
         <div className="card-shadow rounded-2xl p-6 mb-6">
-          <div style={{ height: 460 }}>
-            <PlotlyChart data={data} layout={layout} />
+          <div style={{ height: 480, position: "relative" }}>
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+              }}
+            >
+              <PlotlyChart
+                data={data}
+                layout={{
+                  ...layout,
+                  width: undefined,
+                  height: undefined,
+                }}
+                config={{
+                  responsive: true,
+                  displayModeBar: false,
+                }}
+                style={{ width: "100%", height: "100%" }}
+              />
+            </div>
           </div>
         </div>
 

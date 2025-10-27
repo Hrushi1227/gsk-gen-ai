@@ -58,9 +58,26 @@ export default function YoYVariance() {
   ];
 
   const layout = {
-    yaxis: { title: "Variance (in Units)" },
-    xaxis: { title: "Year" },
-    legend: { orientation: "h", x: 0, y: 1.15 },
+    yaxis: {
+      title: "Variance (in Units)",
+      tickformat: ",.0f",
+      automargin: true,
+    },
+    xaxis: {
+      title: "Year",
+      automargin: true,
+    },
+    legend: {
+      orientation: "h",
+      y: -0.2,
+      x: 0.5,
+      xanchor: "center",
+    },
+    margin: { l: 80, r: 40, t: 20, b: 100 },
+    hovermode: "x unified",
+    paper_bgcolor: "rgba(0,0,0,0)",
+    plot_bgcolor: "rgba(0,0,0,0)",
+    autosize: true,
   };
 
   return (
@@ -75,7 +92,6 @@ export default function YoYVariance() {
             This chart shows the variance between Actual Sales and LTDF for each
             year, starting from 2019.
           </p>
-
           <div className="flex gap-4 mb-6">
             <Select defaultValue="Benlysta IV" style={{ width: 200 }}>
               <Option>Benlysta IV</Option>
@@ -87,11 +103,33 @@ export default function YoYVariance() {
               <Option>Yearly</Option>
             </Select>
           </div>
-
-          <div className="card-shadow rounded-2xl p-4" style={{ height: 440 }}>
-            <PlotlyChart data={data} layout={layout} />
-          </div>
-
+          <div className="card-shadow rounded-2xl p-6">
+            <div style={{ height: 480, position: "relative" }}>
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                }}
+              >
+                <PlotlyChart
+                  data={data}
+                  layout={{
+                    ...layout,
+                    width: undefined,
+                    height: undefined,
+                  }}
+                  config={{
+                    responsive: true,
+                    displayModeBar: false,
+                  }}
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </div>
+            </div>
+          </div>{" "}
           <div className="mt-6 mb-6 bg-white p-6 rounded-2xl card-shadow">
             <h3 className="font-semibold mb-2">
               Insights on Benlysta IV in Global Region
