@@ -1,15 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import BrandLevel from "./pages/BrandLevel";
 import BrandLevelForecastSimulation from "./pages/BrandLevelForecastSimulation.jsx";
+import SmartBot from "./pages/chatbot/SmartBot.jsx";
+import SmartBotGlossary from "./pages/chatbot/SmartBotGlossary.jsx";
 import Dashboard from "./pages/Dashboard";
 import ForecastSimulation from "./pages/ForecastSimulation";
-import Login from "./pages/Login";
-import PortfolioLevel from "./pages/PortfolioLevel";
-import SalesVsForecast from "./pages/SalesVsForecast.jsx";
-import SmartBot from "./pages/SmartBot.jsx";
-import SmartBotGlossary from "./pages/SmartBotGlossary.jsx";
-import VarianceRegions from "./pages/VarianceRegions";
-import YoYVariance from "./pages/YoYVariance";
+import Login from "./pages/login/Login.jsx";
+import BrandLevel from "./pages/probscenario/BrandLevel";
+import PortfolioLevel from "./pages/probscenario/PortfolioLevel";
+import SalesVsForecast from "./pages/report/SalesVsForecast.jsx";
+import VarianceRegions from "./pages/report/VarianceRegions.jsx";
+import YoYVariance from "./pages/report/YoYVariance.jsx";
 
 function App() {
   return (

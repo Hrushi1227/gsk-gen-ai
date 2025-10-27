@@ -5,11 +5,30 @@ import {
   RobotOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Sidebar() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const [openKeys, setOpenKeys] = useState([]);
+
+  // Set initial open submenu based on current path
+  useEffect(() => {
+    if (pathname.includes("variance") || pathname === "/sales-vs-forecast") {
+      setOpenKeys(["reports"]);
+    } else if (pathname.includes("level")) {
+      setOpenKeys(["scenario"]);
+    } else if (pathname.includes("smart-bot")) {
+      setOpenKeys(["smart"]);
+    }
+  }, [pathname]);
+
+  const onOpenChange = (keys) => {
+    // When a submenu is clicked, only that one should be open
+    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+    setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+  };
 
   const onSelect = ({ key }) => navigate(key);
 
@@ -26,6 +45,8 @@ export default function Sidebar() {
         <Menu
           mode="inline"
           selectedKeys={[pathname]}
+          openKeys={openKeys}
+          onOpenChange={onOpenChange}
           onSelect={onSelect}
           style={{ border: "none" }}
         >

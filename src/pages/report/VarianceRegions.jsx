@@ -1,6 +1,6 @@
 import { Select } from "antd";
-import PlotlyChart from "../components/PlotlyChart";
-import Sidebar from "../components/Sidebar";
+import PlotlyChart from "../../components/PlotlyChart";
+import Sidebar from "../../components/Sidebar";
 const { Option } = Select;
 
 export default function VarianceRegions() {

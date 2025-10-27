@@ -1,5 +1,5 @@
 import { Card, Table, Typography } from "antd";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../../components/Sidebar";
 
 const { Title, Paragraph } = Typography;
 
