@@ -1,0 +1,234 @@
+/* Tailwind Base Layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -----------------------------
+   🌟 GLOBAL STYLES
+--------------------------------*/
+
+.ant-menu-item-selected {
+  background-color: #fff4ec !important;
+  color: #e86e2f !important;
+  border-radius: 8px;
+}
+
+/* Font family for overall UI */
+body {
+  @apply font-sans text-gray-800 bg-gray-50;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default padding/margin */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* -----------------------------
+   🎨 COLORS & THEME HELPERS
+--------------------------------*/
+
+/* Custom GSK brand colors */
+:root {
+  --gsk-orange: #e86e2f;
+  --gsk-dark: #1f2937;
+  --gsk-light: #fff5ef;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--gsk-orange);
+  color: #fff;
+}
+
+/* Scrollbar styling (nice touch for sidebar/dashboard) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* -----------------------------
+   🧭 SIDEBAR STYLING
+--------------------------------*/
+
+aside {
+  @apply bg-white shadow-md border-r border-gray-200;
+}
+
+aside .ant-menu {
+  border-inline-end: none !important;
+  @apply text-gray-700;
+}
+
+aside .ant-menu-item,
+aside .ant-menu-submenu-title {
+  @apply text-gray-700 hover:text-[var(--gsk-orange)] font-medium;
+}
+
+/* Active sidebar menu item */
+.ant-menu-item-selected {
+  background-color: var(--gsk-orange) !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+}
+
+/* Hover state fix for submenus */
+.ant-menu-submenu-title:hover {
+  color: var(--gsk-orange) !important;
+}
+
+/* GSK Logo area */
+aside .ant-menu-item-group-title {
+  @apply text-sm text-gray-500 uppercase tracking-wide;
+}
+
+/* -----------------------------
+   💠 DASHBOARD CARDS & LAYOUT
+--------------------------------*/
+
+/* Card wrapper (used for white cards) */
+.card-shadow {
+  @apply bg-white rounded-2xl p-6 shadow-md;
+  box-shadow: 0 8px 20px rgba(22, 24, 27, 0.06);
+}
+
+/* Headings */
+h1 {
+  @apply text-2xl font-bold text-gray-900;
+}
+h2 {
+  @apply text-xl font-semibold text-gray-800;
+}
+h3 {
+  @apply text-lg font-semibold text-gray-800;
+}
+
+/* Orange accent heading */
+.heading-orange {
+  color: var(--gsk-orange);
+}
+
+/* Small pill tags */
+.badge {
+  @apply inline-flex items-center text-sm px-3 py-1 rounded-full;
+  background-color: var(--gsk-light);
+  color: var(--gsk-orange);
+}
+
+/* -----------------------------
+   📊 PLOTLY CHART CONTAINERS
+--------------------------------*/
+
+.plotly-container {
+  @apply bg-white rounded-2xl p-4 shadow-md;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.plotly-container .main-svg {
+  border-radius: 10px !important;
+}
+
+/* Hide Plotly mode bar for clean UI */
+.modebar {
+  display: none !important;
+}
+
+/* -----------------------------
+   🧾 TABLES
+--------------------------------*/
+
+table {
+  @apply w-full border-collapse;
+}
+
+thead {
+  @apply bg-gray-100 text-gray-700;
+}
+
+th,
+td {
+  @apply p-2 border text-sm text-gray-800;
+}
+
+/* Hover row effect */
+tbody tr:hover {
+  @apply bg-gray-50;
+}
+
+/* -----------------------------
+   🧱 LOGIN PAGE STYLES
+--------------------------------*/
+
+.login-left {
+  @apply hidden lg:block w-1/2;
+}
+
+.login-right {
+  @apply flex-1 flex flex-col justify-center px-12;
+}
+
+.login-right h1 {
+  @apply text-4xl font-semibold text-[var(--gsk-orange)] mb-4;
+}
+
+.login-divider {
+  @apply flex items-center text-xs text-gray-400 my-4;
+}
+
+.login-divider::before,
+.login-divider::after {
+  @apply flex-1 border-t;
+  content: "";
+}
+
+/* Ant overrides for Login Page buttons */
+.ant-btn {
+  @apply font-medium rounded-md;
+}
+
+.ant-btn-primary {
+  background-color: var(--gsk-orange) !important;
+  border-color: var(--gsk-orange) !important;
+}
+
+.ant-btn-primary:hover {
+  background-color: #cf5c20 !important;
+  border-color: #cf5c20 !important;
+}
+
+/* -----------------------------
+   📱 RESPONSIVE TWEAKS
+--------------------------------*/
+
+@media (max-width: 1024px) {
+  aside {
+    width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  aside {
+    display: none;
+  }
+
+  .mobile-sidebar-open aside {
+    display: block;
+    position: absolute;
+    z-index: 50;
+    height: 100vh;
+    width: 220px;
+    @apply bg-white border-r border-gray-200 shadow-lg;
+  }
+}
