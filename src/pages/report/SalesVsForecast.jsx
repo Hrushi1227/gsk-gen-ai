@@ -79,50 +79,52 @@ export default function SalesVsForecast() {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen overflow-hidden">
       <Sidebar />
-      <main className="flex-1 p-8">
-        <h1 className="text-2xl font-bold mb-2">
-          Actual Sales vs. Long Term Demand Forecast (LTDF)
-        </h1>
-        <p className="text-gray-600 mb-6">
-          This chart shows how actual sales (in Units) compare to snapshot LTDF
-          forecasts.
-        </p>
+      <main className="flex-1 overflow-y-auto">
+        <div className="max-w-[1400px] mx-auto p-8">
+          <h1 className="text-2xl font-bold mb-2">
+            Actual Sales vs. Long Term Demand Forecast (LTDF)
+          </h1>
+          <p className="text-gray-600 mb-6">
+            This chart shows how actual sales (in Units) compare to snapshot
+            LTDF forecasts.
+          </p>
 
-        <div className="flex gap-4 mb-6">
-          <Select defaultValue="Benlysta IV" style={{ width: 220 }}>
-            <Option>Benlysta IV</Option>
-            <Option>Benlysta SC</Option>
-          </Select>
-          <Select defaultValue="Global" style={{ width: 160 }}>
-            <Option>Global</Option>
-            <Option>US</Option>
-            <Option>EU</Option>
-          </Select>
-          <Select defaultValue="Yearly" style={{ width: 160 }}>
-            <Option>Yearly</Option>
-            <Option>Quarterly</Option>
-            <Option>Monthly</Option>
-          </Select>
-        </div>
-
-        <div className="card-shadow rounded-2xl p-4" style={{ height: 440 }}>
-          <PlotlyChart data={data} layout={layout} />
-        </div>
-
-        {/* Insights card */}
-        <div className="mt-6 bg-white card-shadow rounded-2xl p-6">
-          <div className="inline-flex gap-2 mb-3">
-            <span className="px-3 py-1 bg-orange-50 text-gskOrange rounded-full text-sm">
-              Benlysta IV in Global Region
-            </span>
+          <div className="flex gap-4 mb-6">
+            <Select defaultValue="Benlysta IV" style={{ width: 220 }}>
+              <Option>Benlysta IV</Option>
+              <Option>Benlysta SC</Option>
+            </Select>
+            <Select defaultValue="Global" style={{ width: 160 }}>
+              <Option>Global</Option>
+              <Option>US</Option>
+              <Option>EU</Option>
+            </Select>
+            <Select defaultValue="Yearly" style={{ width: 160 }}>
+              <Option>Yearly</Option>
+              <Option>Quarterly</Option>
+              <Option>Monthly</Option>
+            </Select>
           </div>
-          <h3 className="text-lg font-semibold mb-2">Insights</h3>
-          <ul className="list-disc ml-6 text-gray-700">
-            <li>Sample insight A about forecast accuracy.</li>
-            <li>Sample insight B about year-on-year adjustment.</li>
-          </ul>
+
+          <div className="card-shadow rounded-2xl p-4" style={{ height: 440 }}>
+            <PlotlyChart data={data} layout={layout} />
+          </div>
+
+          {/* Insights card */}
+          <div className="mt-6 bg-white card-shadow rounded-2xl p-6">
+            <div className="inline-flex gap-2 mb-3">
+              <span className="px-3 py-1 bg-orange-50 text-gskOrange rounded-full text-sm">
+                Benlysta IV in Global Region
+              </span>
+            </div>
+            <h3 className="text-lg font-semibold mb-2">Insights</h3>
+            <ul className="list-disc ml-6 text-gray-700">
+              <li>Sample insight A about forecast accuracy.</li>
+              <li>Sample insight B about year-on-year adjustment.</li>
+            </ul>
+          </div>
         </div>
       </main>
     </div>

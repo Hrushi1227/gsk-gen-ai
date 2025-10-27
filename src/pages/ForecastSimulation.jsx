@@ -46,54 +46,57 @@ export default function ForecastSimulation() {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen overflow-hidden">
       <Sidebar />
-      <main className="flex-1 p-8">
-        <h1 className="text-2xl font-bold mb-2">
-          Probabilistic Scenario Analysis
-        </h1>
-        <p className="text-gray-600 mb-6">
-          A probabilistic simulation visualizing upside and downside scenarios.
-        </p>
+      <main className="flex-1 overflow-y-auto">
+        <div className="max-w-[1400px] mx-auto p-8">
+          <h1 className="text-2xl font-bold mb-2">
+            Probabilistic Scenario Analysis
+          </h1>
+          <p className="text-gray-600 mb-6">
+            A probabilistic simulation visualizing upside and downside
+            scenarios.
+          </p>
 
-        <div className="flex gap-4 mb-6">
-          <Select defaultValue="Benlysta IV" style={{ width: 200 }}>
-            <Option>Benlysta IV</Option>
-          </Select>
-          <Select defaultValue="US" style={{ width: 140 }}>
-            <Option>US</Option>
-          </Select>
-          <Select defaultValue="Yearly" style={{ width: 140 }}>
-            <Option>Yearly</Option>
-          </Select>
-          <Select defaultValue="2025" style={{ width: 140 }}>
-            <Option>2025</Option>
-          </Select>
-        </div>
+          <div className="flex gap-4 mb-6">
+            <Select defaultValue="Benlysta IV" style={{ width: 200 }}>
+              <Option>Benlysta IV</Option>
+            </Select>
+            <Select defaultValue="US" style={{ width: 140 }}>
+              <Option>US</Option>
+            </Select>
+            <Select defaultValue="Yearly" style={{ width: 140 }}>
+              <Option>Yearly</Option>
+            </Select>
+            <Select defaultValue="2025" style={{ width: 140 }}>
+              <Option>2025</Option>
+            </Select>
+          </div>
 
-        <div style={{ height: 420 }} className="card-shadow rounded-2xl p-4">
-          <PlotlyChart data={data} layout={layout} />
-        </div>
+          <div className="card-shadow rounded-2xl p-4" style={{ height: 440 }}>
+            <PlotlyChart data={data} layout={layout} />
+          </div>
 
-        <div className="mt-6 bg-white p-6 rounded-2xl card-shadow">
-          <table className="w-full text-sm">
-            <thead className="text-left text-gray-700">
-              <tr>
-                <th className="p-2">Year</th>
-                <th className="p-2">Base LTDF</th>
-                <th className="p-2">Custom Forecast</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[2025, 2026, 2027, 2028, 2029].map((y) => (
-                <tr key={y}>
-                  <td className="p-2">{y}</td>
-                  <td className="p-2">1,000,000</td>
-                  <td className="p-2">1,050,000</td>
+          <div className="mt-6 mb-6 bg-white p-6 rounded-2xl card-shadow">
+            <table className="w-full text-sm">
+              <thead className="text-left text-gray-700">
+                <tr>
+                  <th className="p-2">Year</th>
+                  <th className="p-2">Base LTDF</th>
+                  <th className="p-2">Custom Forecast</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {[2025, 2026, 2027, 2028, 2029].map((y) => (
+                  <tr key={y}>
+                    <td className="p-2">{y}</td>
+                    <td className="p-2">1,000,000</td>
+                    <td className="p-2">1,050,000</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </main>
     </div>

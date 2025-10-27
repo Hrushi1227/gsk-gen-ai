@@ -79,9 +79,9 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen overflow-hidden">
       <Sidebar />
-      <main className="flex-1 p-8">
+      <main className="flex-1 p-8 overflow-y-auto">
         <h1 className="text-2xl font-bold mb-2">
           Actual Sales vs. Long Term Demand Forecast (LTDF)
         </h1>

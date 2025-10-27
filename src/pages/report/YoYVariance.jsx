@@ -64,44 +64,46 @@ export default function YoYVariance() {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen overflow-hidden">
       <Sidebar />
-      <main className="flex-1 p-8">
-        <h1 className="text-2xl font-bold mb-2">
-          Year on Year Variance Trend (in Units)
-        </h1>
-        <p className="text-gray-600 mb-6">
-          This chart shows the variance between Actual Sales and LTDF for each
-          year, starting from 2019.
-        </p>
+      <main className="flex-1 overflow-y-auto">
+        <div className="max-w-[1400px] mx-auto p-8">
+          <h1 className="text-2xl font-bold mb-2">
+            Year on Year Variance Trend (in Units)
+          </h1>
+          <p className="text-gray-600 mb-6">
+            This chart shows the variance between Actual Sales and LTDF for each
+            year, starting from 2019.
+          </p>
 
-        <div className="flex gap-4 mb-6">
-          <Select defaultValue="Benlysta IV" style={{ width: 200 }}>
-            <Option>Benlysta IV</Option>
-          </Select>
-          <Select defaultValue="Global" style={{ width: 140 }}>
-            <Option>Global</Option>
-          </Select>
-          <Select defaultValue="Yearly" style={{ width: 140 }}>
-            <Option>Yearly</Option>
-          </Select>
-        </div>
+          <div className="flex gap-4 mb-6">
+            <Select defaultValue="Benlysta IV" style={{ width: 200 }}>
+              <Option>Benlysta IV</Option>
+            </Select>
+            <Select defaultValue="Global" style={{ width: 140 }}>
+              <Option>Global</Option>
+            </Select>
+            <Select defaultValue="Yearly" style={{ width: 140 }}>
+              <Option>Yearly</Option>
+            </Select>
+          </div>
 
-        <div style={{ height: 420 }} className="card-shadow rounded-2xl p-4">
-          <PlotlyChart data={data} layout={layout} />
-        </div>
+          <div className="card-shadow rounded-2xl p-4" style={{ height: 440 }}>
+            <PlotlyChart data={data} layout={layout} />
+          </div>
 
-        <div className="mt-6 bg-white p-6 rounded-2xl card-shadow">
-          <h3 className="font-semibold mb-2">
-            Insights on Benlysta IV in Global Region
-          </h3>
-          <ul className="list-disc ml-6 text-gray-700">
-            <li>
-              The Variance % range for underestimation in 2019 was -8.3% to
-              -48.1%
-            </li>
-            <li>… (other insights as in your screenshots)</li>
-          </ul>
+          <div className="mt-6 mb-6 bg-white p-6 rounded-2xl card-shadow">
+            <h3 className="font-semibold mb-2">
+              Insights on Benlysta IV in Global Region
+            </h3>
+            <ul className="list-disc ml-6 text-gray-700">
+              <li>
+                The Variance % range for underestimation in 2019 was -8.3% to
+                -48.1%
+              </li>
+              <li>… (other insights as in your screenshots)</li>
+            </ul>
+          </div>
         </div>
       </main>
     </div>

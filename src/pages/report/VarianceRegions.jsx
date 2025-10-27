@@ -48,42 +48,44 @@ export default function VarianceRegions() {
   const layout = { barmode: "group", yaxis: { title: "Variance (in Units)" } };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen overflow-hidden">
       <Sidebar />
-      <main className="flex-1 p-8">
-        <h1 className="text-2xl font-bold mb-2">
-          Variance Trend Across Regions
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Variance between Actual Sales and LTDF across regions.
-        </p>
+      <main className="flex-1 overflow-y-auto">
+        <div className="max-w-[1400px] mx-auto p-8">
+          <h1 className="text-2xl font-bold mb-2">
+            Variance Trend Across Regions
+          </h1>
+          <p className="text-gray-600 mb-6">
+            Variance between Actual Sales and LTDF across regions.
+          </p>
 
-        <div className="flex gap-4 mb-6">
-          <Select defaultValue="Benlysta IV" style={{ width: 200 }}>
-            <Option>Benlysta IV</Option>
-          </Select>
-          <Select defaultValue="2024" style={{ width: 140 }}>
-            <Option>2024</Option>
-          </Select>
-          <Select defaultValue="Units" style={{ width: 140 }}>
-            <Option>Variance in Units</Option>
-          </Select>
-        </div>
+          <div className="flex gap-4 mb-6">
+            <Select defaultValue="Benlysta IV" style={{ width: 200 }}>
+              <Option>Benlysta IV</Option>
+            </Select>
+            <Select defaultValue="2024" style={{ width: 140 }}>
+              <Option>2024</Option>
+            </Select>
+            <Select defaultValue="Units" style={{ width: 140 }}>
+              <Option>Variance in Units</Option>
+            </Select>
+          </div>
 
-        <div style={{ height: 420 }} className="card-shadow rounded-2xl p-4">
-          <PlotlyChart data={data} layout={layout} />
-        </div>
+          <div className="card-shadow rounded-2xl p-4" style={{ height: 440 }}>
+            <PlotlyChart data={data} layout={layout} />
+          </div>
 
-        <div className="mt-6 bg-white p-6 rounded-2xl card-shadow">
-          <h3 className="font-semibold mb-2">
-            Insights on Sub-brand Benlysta IV and Year 2024
-          </h3>
-          <ul className="list-disc ml-6 text-gray-700">
-            <li>
-              The China region shows a decreasing trend in variance from 2021 to
-              2024.
-            </li>
-          </ul>
+          <div className="mt-6 mb-6 bg-white p-6 rounded-2xl card-shadow">
+            <h3 className="font-semibold mb-2">
+              Insights on Sub-brand Benlysta IV and Year 2024
+            </h3>
+            <ul className="list-disc ml-6 text-gray-700">
+              <li>
+                The China region shows a decreasing trend in variance from 2021
+                to 2024.
+              </li>
+            </ul>
+          </div>
         </div>
       </main>
     </div>
