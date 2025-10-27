@@ -1,6 +1,5 @@
 import { Select } from "antd";
-import PlotlyChart from "../components/PlotlyChart";
-import Sidebar from "../components/Sidebar";
+import PlotlyChart from "./PlotlyChart";
 const { Option } = Select;
 
 export default function ForecastSimulation() {
@@ -46,8 +45,7 @@ export default function ForecastSimulation() {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden">
-      <Sidebar />
+    <div className="flex h-screen overflow-auto">
       <main className="flex-1 overflow-y-auto">
         <div className="max-w-[1400px] mx-auto p-8">
           <h1 className="text-2xl font-bold mb-2">

@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
+import ForecastSimulation from "./components/ForecastSimulation.jsx";
 import BrandLevelForecastSimulation from "./pages/BrandLevelForecastSimulation.jsx";
 import SmartBot from "./pages/chatbot/SmartBot.jsx";
 import SmartBotGlossary from "./pages/chatbot/SmartBotGlossary.jsx";
 import Dashboard from "./pages/Dashboard";
-import ForecastSimulation from "./pages/ForecastSimulation";
 import Login from "./pages/login/Login.jsx";
 import BrandLevel from "./pages/probscenario/BrandLevel";
 import PortfolioLevel from "./pages/probscenario/PortfolioLevel";
