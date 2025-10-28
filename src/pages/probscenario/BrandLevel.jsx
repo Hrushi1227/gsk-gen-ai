@@ -2,7 +2,7 @@ import { Checkbox, Select, Tabs } from "antd";
 import { useState } from "react";
 import ForecastSimulation from "../../components/ForecastSimulation";
 import PlotlyChart from "../../components/PlotlyChart";
-import Sidebar from "../../components/Sidebar";
+import Sidebar from "../../components/layout/Sidebar";
 
 const { Option } = Select;
 const { TabPane } = Tabs;

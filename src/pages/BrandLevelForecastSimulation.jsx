@@ -1,7 +1,7 @@
 import { Col, InputNumber, Row, Select, Tabs } from "antd";
 import { useMemo, useState } from "react";
 import PlotlyChart from "../components/PlotlyChart";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/layout/Sidebar";
 
 const { Option } = Select;
 const { TabPane } = Tabs; // Ant still exposes Tabs.TabPane pattern
